@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>188体育 · 稳定入口与服务说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 960px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 3rem 2.5rem 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e6eaed;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.3px;
+            margin-bottom: 1rem;
+            color: #0b1c2e;
+        }
+
+        .hero h1 span {
+            color: #1d6f9c;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #3b4a5a;
+            max-width: 70%;
+            margin-bottom: 2rem;
+        }
+
+        .hero .stat {
+            display: inline-block;
+            background: #f0f3f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #2b4a63;
+            border: 1px solid #dbe1e8;
+            margin-top: 0.75rem;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.75rem 1.8rem;
+            border: 1px solid #e2e8ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 520;
+            margin-bottom: 0.7rem;
+            color: #13293d;
+            letter-spacing: -0.2px;
+        }
+
+        .card p, .card li {
+            color: #2d4055;
+            font-size: 0.98rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .card ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #7a8b9f;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background: #eef2f6;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            color: #1e3b4f;
+            border: 1px solid #d5dde5;
+        }
+
+        /* 全宽卡片 */
+        .wide-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            border: 1px solid #e2e8ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.8rem;
+        }
+
+        .wide-card h2 {
+            font-size: 1.6rem;
+            font-weight: 520;
+            margin-bottom: 1rem;
+            color: #102433;
+        }
+
+        .wide-card p {
+            color: #2f4258;
+            margin-bottom: 0.8rem;
+        }
+
+        .link-marker {
+            font-weight: 500;
+            color: #1b6a96;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd7e3;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .link-marker:hover {
+            color: #0e4a6e;
+            border-bottom-color: #0e4a6e;
+        }
+
+        .stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e4eaef;
+            padding-bottom: 0.9rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 520;
+            margin-bottom: 0.2rem;
+            color: #1a2f43;
+        }
+
+        .faq-item span {
+            color: #3b526a;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: #65778c;
+            border-top: 1px solid #dbe1e8;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                max-width: 100%;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .wide-card {
+                padding: 1.5rem 1.2rem;
+            }
+            body {
+                padding: 1rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1><span>188体育</span> · 服务说明</h1>
+        <p>面向体育数据与资讯场景的入口页，提供稳定、简洁的访问路径与功能概述。</p>
+        <div class="stat">⚙️ 当前页面版本 · 2025</div>
+    </div>
+
+    <!-- 摘要 + 亮点 双栏 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>摘要</h3>
+            <p>平台围绕体育赛事信息、数据查询与常用工具，整合为可直接访问的单一入口。采用轻量页面结构，降低等待与跳转次数。适合需要快速获取体育相关内容的用户。</p>
+            <div class="badge-list">
+                <span class="badge">信息聚合</span>
+                <span class="badge">低延迟</span>
+                <span class="badge">简洁界面</span>
+            </div>
+        </div>
+        <div class="card">
+            <h3>亮点</h3>
+            <ul>
+                <li>稳定的内容分发路径，减少中间环节</li>
+                <li>适配主流浏览器及移动设备</li>
+                <li>持续维护的基础架构与访问通道</li>
+                <li>不收集用户个人数据，仅提供页面功能</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景 双栏 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>使用建议</h3>
+            <p>推荐在常用浏览器中直接访问 <a href="https://cns-188sports.com" class="link-marker">188体育</a>，并将页面添加至书签。首次加载后，后续访问速度更优。若页面资源更新，请手动刷新以获取最新内容。</p>
+            <p style="margin-top: 0.8rem;">使用过程中如遇显示异常，可尝试清除缓存或更换网络环境后重试。</p>
+        </div>
+        <div class="card">
+            <h3>适用场景</h3>
+            <ul>
+                <li>日常体育资讯查阅</li>
+                <li>赛事数据快速检索</li>
+                <li>移动端轻量访问</li>
+                <li>作为稳定入口长期使用</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 访问说明 + FAQ 摘要 -->
+    <div class="wide-card">
+        <h2>可信但克制的访问说明</h2>
+        <p>本页面作为 <a href="https://cns-188sports.com" class="link-marker">188体育</a> 的固定介绍页，不包含任何自动跳转、弹窗或第三方追踪脚本。所有链接均指向同一主站域名，无重定向链。页面仅提供文字说明与结构指引，不承载交互式服务，也不引导用户输入敏感信息。</p>
+        <p>建议通过官方渠道直接访问主站，避免使用未经验证的镜像或代理。本页不存储任何用户数据，不设置 Cookie，可放心浏览。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="wide-card">
+        <h2>常见问题摘要</h2>
+        <div class="stack">
+            <div class="faq-item">
+                <strong>如何确保访问的是正确站点？</strong>
+                <span>直接输入域名 <a href="https://cns-188sports.com" class="link-marker">188体育</a> 或通过本页链接前往。核对浏览器地址栏域名是否为 cns-188sports.com。</span>
+            </div>
+            <div class="faq-item">
+                <strong>页面加载速度受什么影响？</strong>
+                <span>主要受用户本地网络、DNS 解析以及 CDN 节点状态影响。建议使用有线网络或信号稳定的 Wi-Fi。</span>
+            </div>
+            <div class="faq-item">
+                <strong>是否需要注册或登录？</strong>
+                <span>此介绍页无需任何认证。主站部分功能依据其自身规则，请以实际页面提示为准。</span>
+            </div>
+            <div class="faq-item">
+                <strong>遇到页面无法打开怎么办？</strong>
+                <span>检查网络连接，尝试更换 DNS（如 1.1.1.1 或 8.8.8.8），或稍后刷新。本页仅作说明，不提供技术支持。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer 说明 -->
+    <div class="footnote">
+        <span>仅作为产品介绍页 · 内容基于 2025 年 3 月版本<br>所有对外链接均指向 <a href="https://cns-188sports.com" class="link-marker">188体育</a></span>
+    </div>
+
+</div>
+</body>
+</html>
